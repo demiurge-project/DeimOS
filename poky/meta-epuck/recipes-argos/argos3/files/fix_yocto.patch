@@ -1,0 +1,33 @@
+From d0fb47dbb932b517fbef055617e496dc0c41e3bb Mon Sep 17 00:00:00 2001
+From: mkegelei <mkegelei@ulb.ac.be>
+Date: Thu, 26 Apr 2018 18:42:27 +0200
+Subject: [PATCH] fix yocto
+
+---
+ src/cmake/ARGoSBuildFlags.cmake | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/cmake/ARGoSBuildFlags.cmake b/cmake/ARGoSBuildFlags.cmake
+index e55cff6..da4c41f 100644
+--- a/cmake/ARGoSBuildFlags.cmake
++++ b/cmake/ARGoSBuildFlags.cmake
+@@ -9,14 +9,14 @@ execute_process(
+ #
+ # General compilation flags
+ #
+-set(CMAKE_C_FLAGS                  "-Wall")
++set(CMAKE_C_FLAGS                  "${CMAKE_C_FLAGS} -Wall -ldl")
+ if(ARGOS_BUILD_NATIVE)
+   set(CMAKE_C_FLAGS                "${CMAKE_C_FLAGS} -mtune=native -march=native")
+ endif(ARGOS_BUILD_NATIVE)
+ set(CMAKE_C_FLAGS_RELEASE          "-Os -DNDEBUG")
+ set(CMAKE_C_FLAGS_DEBUG            "-ggdb3")
+ set(CMAKE_C_FLAGS_RELWITHDEBINFO   "${CMAKE_C_FLAGS_DEBUG} ${CMAKE_C_FLAGS_RELEASE}")
+-set(CMAKE_CXX_FLAGS                "-Wall")
++set(CMAKE_CXX_FLAGS                "${CMAKE_CXX_FLAGS} -Wall -std=c++11 -ldl")
+ if(ARGOS_BUILD_NATIVE)
+   set(CMAKE_CXX_FLAGS              "${CMAKE_CXX_FLAGS} -mtune=native -march=native")
+ endif(ARGOS_BUILD_NATIVE)
+-- 
+2.7.4
+

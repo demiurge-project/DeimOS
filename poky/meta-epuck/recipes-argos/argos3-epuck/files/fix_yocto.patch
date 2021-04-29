@@ -1,0 +1,70 @@
+From 38ed192395ec7cdc2efc8b6c351d9521f04cce9a Mon Sep 17 00:00:00 2001
+From: mkegelei <mkegelei@ulb.ac.be>
+Date: Thu, 26 Apr 2018 18:29:05 +0200
+Subject: [PATCH] patch
+
+---
+ src/cmake/ARGoSBuildFlags.cmake                                       | 4 ++--
+ .../robots/e-puck/control_interface/ci_epuck_accelerometer_sensor.h   | 1 +
+ src/plugins/robots/e-puck/control_interface/ci_epuck_micro_sensor.h   | 1 +
+ .../e-puck/real_robot/real_epuck_range_and_bearing_actuator.cpp       | 1 +
+ 4 files changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/cmake/ARGoSBuildFlags.cmake b/cmake/ARGoSBuildFlags.cmake
+index ee8257f..a15d574 100644
+--- a/cmake/ARGoSBuildFlags.cmake
++++ b/cmake/ARGoSBuildFlags.cmake
+@@ -9,12 +9,12 @@ execute_process(
+ #
+ # General compilation flags
+ #
+-set(CMAKE_C_FLAGS                "-Wall")
++set(CMAKE_C_FLAGS                "${CMAKE_C_FLAGS} -Wall -ldl")
+ set(CMAKE_C_FLAGS_RELEASE        "-Os -DNDEBUG")
+ set(CMAKE_C_FLAGS_RELWITHDEBINFO "-Os -ggdb3 -DNDEBUG")
+ set(CMAKE_C_FLAGS_DEBUG          "-ggdb3")
+ 
+-set(CMAKE_CXX_FLAGS                "-Wall")
++set(CMAKE_CXX_FLAGS                "${CMAKE_CXX_FLAGS} -Wall -std=c++11 -ldl")
+ set(CMAKE_CXX_FLAGS_RELEASE        "-Os -DNDEBUG")
+ set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-Os -ggdb3 -DNDEBUG")
+ set(CMAKE_CXX_FLAGS_DEBUG          "-ggdb3")
+diff --git a/plugins/robots/e-puck/control_interface/ci_epuck_accelerometer_sensor.h b/plugins/robots/e-puck/control_interface/ci_epuck_accelerometer_sensor.h
+index 7810c21..e1bd163 100644
+--- a/plugins/robots/e-puck/control_interface/ci_epuck_accelerometer_sensor.h
++++ b/plugins/robots/e-puck/control_interface/ci_epuck_accelerometer_sensor.h
+@@ -83,6 +83,7 @@ namespace argos {
+        *
+        */
+       virtual void CreateLuaState(lua_State* pt_lua_state) {}
++      virtual void ReadingsToLuaState(lua_State* pt_lua_state) {}
+ #endif
+ 
+    protected:
+diff --git a/plugins/robots/e-puck/control_interface/ci_epuck_micro_sensor.h b/plugins/robots/e-puck/control_interface/ci_epuck_micro_sensor.h
+index b083e0d..f2b8c84 100644
+--- a/plugins/robots/e-puck/control_interface/ci_epuck_micro_sensor.h
++++ b/plugins/robots/e-puck/control_interface/ci_epuck_micro_sensor.h
+@@ -99,6 +99,7 @@ namespace argos {
+        * @param pt_lua_state
+        */
+       virtual void CreateLuaState(lua_State* pt_lua_state) {}
++      virtual void ReadingsToLuaState(lua_State* pt_lua_state) {}
+ #endif
+ 
+      protected:
+diff --git a/plugins/robots/e-puck/real_robot/real_epuck_range_and_bearing_actuator.cpp b/plugins/robots/e-puck/real_robot/real_epuck_range_and_bearing_actuator.cpp
+index 38abf3b..8a5ebee 100644
+--- a/plugins/robots/e-puck/real_robot/real_epuck_range_and_bearing_actuator.cpp
++++ b/plugins/robots/e-puck/real_robot/real_epuck_range_and_bearing_actuator.cpp
+@@ -8,6 +8,7 @@
+ #include <argos3/core/utility/logging/argos_log.h>
+ 
+ #include <cstring>
++#include <unistd.h>
+ 
+ namespace argos {
+ 
+-- 
+2.7.4
+
