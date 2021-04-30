@@ -11,7 +11,7 @@ DeimOS is an open-source Linux-based operating system for the G-puck (i.e., the 
 
 DeimOS is a ready-to use OS that buils upon the Warrior branch of the Gumstix Yocto Manifest (https://github.com/gumstix/yocto-manifest), the Warrior branch of the meta-ros Yocto layer (https://github.com/ros/meta-ros), and a particular implementation of the rtl8192cu Wi-Fi driver (https://github.com/lwfinger/rtl8192cu), and provides proper configuration for the G-puck robot as well as support for ARGoS3 and ressources to build ARGoS3 controllers using (or not) ROS.
 
-DeimOS is released under the terms of the GPLv3 license.
+DeimOS is released under the terms of the GPLv2 license.
 
 Downloading DeimOS
 -----------------------
