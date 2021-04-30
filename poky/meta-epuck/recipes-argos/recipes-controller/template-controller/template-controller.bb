@@ -1,7 +1,7 @@
 DESCRIPTION = "Template controller"
 
-LICENSE = "CLOSED"
-BB_STRICT_CHECKSUM = "0"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=7c1b8e0e670d3d0908d5bbc329198ed7"
 
 DEPENDS = "argos3-epuck"
 

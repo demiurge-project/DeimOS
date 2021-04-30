@@ -1,7 +1,7 @@
 DESCRIPTION = "argos3 installation"
 
-LICENSE = "CLOSED"
-BB_STRICT_CHECKSUM = "0"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://doc/ARGoS_LICENSE.txt;md5=d2f7436c6037ffe0d43f9361957fa5a1"
 
 #DEPENDS += "lua"
 #DEPENDS += "asciidoc"
