@@ -31,6 +31,8 @@ Compiling DeimOS
 **2. Build an image**
 
  $ bitbake gumstix-console-image
+ 
+ This might take some time.
 
 **3. Create a bootable micro SD card**
 
