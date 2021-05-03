@@ -445,4 +445,4 @@ BBMASK .= "${A}"
 
 TDX_MATRIX_BUILD_TIME ?= "${DATE}${TIME}"
 TDX_MATRIX_BUILD_TIME[vardepsexclude] += "DATE TIME"
-IMAGE_INSTALL_append += "rtl8192cu"
+#IMAGE_INSTALL_append += "rtl8192cu"

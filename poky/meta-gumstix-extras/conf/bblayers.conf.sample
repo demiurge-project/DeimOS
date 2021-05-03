@@ -16,6 +16,7 @@ BBLAYERS ?= " \
   ##COREBASE##/meta-openembedded/meta-webserver \
   ##COREBASE##/meta-gumstix \
   ##COREBASE##/meta-gumstix-extras \
+  ##COREBASE##/meta-epuck \
   ##COREBASE##/meta-ros/meta-ros1-melodic \
   ##COREBASE##/meta-ros/meta-ros1 \
   ##COREBASE##/meta-ros/meta-ros-common \
