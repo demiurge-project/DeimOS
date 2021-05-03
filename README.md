@@ -1,4 +1,4 @@
-ARGoS-Epuck README
+DeimOS README
 ===================
 :Author: Miquel Kegeleirs
 :Email:  miquel.kegeleirs@ulb.be
