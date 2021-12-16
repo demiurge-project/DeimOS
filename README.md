@@ -48,3 +48,10 @@ In case the G-puck does not connect, check your configuration and try:
  $ /etc/init.d/rc.local restart
 
 DeimOS enables ssh by default, once the network connection is established you can connect directly to the G-puck using ssh.
+
+Templates
+---------------------
+
+A recipe template for a custom ARGoS controller for the G-puck can be found in poky/meta-epuck/recipes-controller
+
+A recipe template for an additional ROS package can be found in poky/meta-epuck
