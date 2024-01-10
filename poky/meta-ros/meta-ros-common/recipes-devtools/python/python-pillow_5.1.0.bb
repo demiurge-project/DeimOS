@@ -7,13 +7,13 @@ DEPENDS = "jpeg zlib tiff freetype libpng jpeg"
 
 inherit pkgconfig setuptools
 
-SRCREV = "fda33d5c09142c4bb0e99964919d01c2cc5f5995"
-SRC_URI = "git://github.com/python-pillow/Pillow;protocol=https \
-           file://0001-build-always-disable-platform-guessing.patch \
-          "
+#SRCREV = "fda33d5c09142c4bb0e99964919d01c2cc5f5995"
+SRC_URI = "file://Pillow"
+
+#file://0001-build-always-disable-platform-guessing.patch
 
 
-S = "${WORKDIR}/git"
+S = "${WORKDIR}/Pillow/."
 
 # Yes, both this and the export in do_compile_prepend are needed :/
 CFLAGS_append = " -I${STAGING_INCDIR}"
