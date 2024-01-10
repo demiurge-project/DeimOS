@@ -6,12 +6,14 @@ LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "\
     file://LICENSE;md5=d32239bcb673463ab874e80d47fae504 \
 "
+#https://www.riverbankcomputing.com/static/Downloads/PyQt5/${PV}/PyQt5_gpl-${PV}.tar.gz
+
 SRC_URI = "\
-    https://www.riverbankcomputing.com/static/Downloads/PyQt5/${PV}/PyQt5_gpl-${PV}.tar.gz \
+	https://files.pythonhosted.org/packages/7c/5b/e760ec4f868cb77cee45b4554bf15d3fe6972176e89c4e3faac941213694/PyQt5-${PV}.tar.gz \
 "
-SRC_URI[md5sum] = "67508b652098d2e05c4c2b5baeb170cc"
-SRC_URI[sha256sum] = "3718ce847d824090fd5f95ff3f13847ee75c2507368d4cbaeb48338f506e59bf"
-S = "${WORKDIR}/PyQt5_gpl-${PV}"
+SRC_URI[md5sum] = "9afe6f358054721474cf26a4eb20b70a"
+SRC_URI[sha256sum] = "0145a6b7de15756366decb736c349a0cb510d706c83fda5b8cd9e0557bc1da72"
+S = "${WORKDIR}/PyQt5-${PV}"
 
 inherit qmake5
 DEPENDS = "qtbase"
