@@ -1,7 +1,7 @@
 DESCRIPTION = "argos3-epuck installation"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=2a32bd8ca7115ec304c8e0dd15748e29"
+LIC_FILES_CHKSUM = "file://../LICENSE;md5=0d87dc8d54de5bc6ebf8bc2977398756"
 
 DEPENDS = "argos3"
 inherit cmake

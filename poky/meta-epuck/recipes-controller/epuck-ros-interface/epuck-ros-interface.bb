@@ -1,7 +1,7 @@
 DESCRIPTION = "ROS interface controller installation"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=7c1b8e0e670d3d0908d5bbc329198ed7"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=77f719528c8e739b3940a5574b90f6f9"
 
 inherit ros_distro_melodic
 inherit ros_superflore_generated
