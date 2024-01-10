@@ -1,0 +1,36 @@
+From ff88cbc9fe73ddb6e1e8cc85b46945704101b6a3 Mon Sep 17 00:00:00 2001
+From: mkegelei <mkegelei@ulb.ac.be>
+Date: Fri, 5 Jan 2024 14:15:28 +0100
+Subject: [PATCH] remove deprecated references to stime
+
+---
+ linux-user/syscall.c | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
+
+diff --git a/linux-user/syscall.c b/linux-user/syscall.c
+index 44f2c005..1cf3cb4f 100644
+--- a/linux-user/syscall.c
++++ b/linux-user/syscall.c
+@@ -7396,13 +7396,15 @@ static abi_long do_syscall1(void *cpu_env, int num, abi_long arg1,
+         return ret;
+ #endif
+ #ifdef TARGET_NR_stime /* not on alpha */
+-    case TARGET_NR_stime:
+-        {
+-            time_t host_time;
+-            if (get_user_sal(host_time, arg1))
+-                return -TARGET_EFAULT;
+-            return get_errno(stime(&host_time));
+-        }
++	case TARGET_NR_stime:
++		{
++			struct timespec ts;
++			ts.tv_nsec = 0;
++			if (get_user_sal(ts.tv_sec, arg1)) {
++				return -TARGET_EFAULT;
++			}
++			return get_errno(clock_settime(CLOCK_REALTIME, &ts));
++		}
+ #endif
+ #ifdef TARGET_NR_alarm /* not on alpha */
+     case TARGET_NR_alarm:

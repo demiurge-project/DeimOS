@@ -51,7 +51,6 @@ RDEPENDS_packagegroup-gumstix = " \
     python3-pyserial \
     robovero-examples \
     robovero-python \
-    rtklibexplorer \
     screen \
     spidev-test \
     sshd \

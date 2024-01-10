@@ -4,9 +4,9 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
-SRCREV = "32713d30b479690d199b3f02163a832b09b309a5"
-SRC_URI = "git://github.com/awslabs/${BPN}.git;protocol=https"
-S = "${WORKDIR}/git"
+#SRCREV = "32713d30b479690d199b3f02163a832b09b309a5"
+SRC_URI = "file://aws-c-event-stream"
+S = "${WORKDIR}/aws-c-event-stream/."
 
 inherit cmake
 

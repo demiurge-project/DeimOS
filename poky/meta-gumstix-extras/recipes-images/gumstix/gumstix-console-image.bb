@@ -174,9 +174,6 @@ IMAGE_INSTALL += " \
 #    python3-kiwisolver \
 #    python3-pillow \
 #    opencv \
-#    tensorflow-cuda \
-#    tensorflow-benchmark \
-#    tensorflow-tf-trt-models \
 #"
 
 ROOTFS_CMD ?= ""

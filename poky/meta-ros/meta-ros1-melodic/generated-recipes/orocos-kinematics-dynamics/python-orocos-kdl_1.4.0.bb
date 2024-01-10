@@ -50,7 +50,9 @@ RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
 # matches with: https://github.com/orocos/orocos-kdl-release/archive/release/melodic/python_orocos_kdl/1.4.0-0.tar.gz
 ROS_BRANCH ?= "branch=release/melodic/python_orocos_kdl"
-SRC_URI = "git://github.com/orocos/orocos-kdl-release;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/orocos/orocos-kdl-release;${ROS_BRANCH};protocol=https \
+	   file://0001-fix-compatibility-issues-with-sip-v4.19.23-and-later.patch \
+	   "
 SRCREV = "6995671810f03c03fce006d04883b6899ccece10"
 S = "${WORKDIR}/git"
 
