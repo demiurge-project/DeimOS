@@ -11,7 +11,7 @@ DeimOS is an open-source Linux-based operating system for the G-puck (i.e., the 
 
 DeimOS is a ready-to use OS that buils upon the Warrior branch of the Gumstix Yocto Manifest (https://github.com/gumstix/yocto-manifest), the Warrior branch of the meta-ros Yocto layer (https://github.com/ros/meta-ros), and a particular implementation of the rtl8192cu Wi-Fi driver (https://github.com/lwfinger/rtl8192cu), and provides proper configuration for the G-puck robot as well as support for ARGoS3 and ressources to build ARGoS3 controllers using (or not) ROS.
 
-DeimOS is released under the terms of the GPLv2 license.
+DeimOS is released under the terms of the GPLv3 license.
 
 Downloading DeimOS
 -----------------------
@@ -20,11 +20,20 @@ You can download the development sources through git:
 
  $ git clone https://github.com/demiurge-project/DeimOS DeimOS
 
+Preparing the environment
+---------------------
+
+On Debian, you can install all of the necessary requirements
+with the following command:
+
+ $ sudo apt-get install chrpath diffstat gawk texinfo 
+
 Compiling DeimOS
 ---------------------
 
 **1. Initialize the Yocto Project Build Environment**
 
+ $ cd DeimOS
  $ export TEMPLATECONF=meta-gumstix-extras/conf 
  $ source ./poky/oe-init-build-env
 
@@ -32,7 +41,18 @@ Compiling DeimOS
 
  $ bitbake gumstix-console-image
  
- This might take some time.
+ This might take some time depending on your system.
+ 
+ Some common issues:
+ 
+ * Some packages (e.g., pcl) require more computing power to build than the average, and the compilation process might freeze and ultimately fail on older systems.
+ Compiling the package alone (e.g., bitbake pcl) before restarting the full build (bitbake gumstix-console-image) solves the issue in some cases, but if the process keeps freezing, you might need to consider a more recent system for the compilation.
+ 
+ * On the contrary, on very powerful systems, the compilation process might fail because of fetching errors from github. This is due to the system processing to many fetching in parallel.
+ Restarting the build process (bitbake gumstix-console-image) solves the issue.
+ 
+ * A QA related error interrupts occasionaly the build of argos3 and argos3-epuck. Again, restarting the build process (bitbake gumstix-console-image) solves the issue.
+ 
 
 **3. Create a bootable micro SD card**
 
