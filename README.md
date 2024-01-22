@@ -56,7 +56,26 @@ Compiling DeimOS
 
 **3. Create a bootable micro SD card**
 
-You can follow the instructions given here: [Create Bootable MicroSD Card](https://www.gumstix.com/support/getting-started/create-bootable-microsd-card/ "Create Card")
+You can follow the instructions given here: [Create Bootable MicroSD Card](https://www.gumstix.com/support/getting-started/create-bootable-microsd-card/ "Create Card").
+
+The required files can be found in build/tmp/deploy/images/overo/ after succesful build.
+Prebuilt image files can also be found on [Zenodo](https://doi.org/10.5281/zenodo.10551351 "Prebuilt files").
+
+Alternatively, it is also possible to use wic to create a .direct file that can then be flashed on the micro SD card using bmap-tools.
+
+After the build process is complete, in the build folder, create the image file (a prebuilt file is also available on [Zenodo](https://doi.org/10.5281/zenodo.10551351 "Prebuilt files")):
+
+ $ wic create sdimage-gumstix -e gumstix-console-image
+ 
+Then, use bmap-tools to flash your device:
+
+ $ sudo apt-get install bmap-tools
+
+ $ bmaptool create sdimage-gumstix-mmcblk0.direct > image.bmap
+ 
+ $ sudo bmaptool copy --bmap image.bmap sdimage-gumstix-mmcblk0.direct /dev/DEVICE_NAME
+ 
+ where DEVICE_NAME is the name of the  microSD card (for example : mmcblk0)
 
 Additional setup
 ---------------------
