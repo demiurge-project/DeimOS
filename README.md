@@ -1,7 +1,7 @@
 DeimOS README
 ===================
-:Author: Miquel Kegeleirs
-:Email:  miquel.kegeleirs@ulb.be
+:Author: Miquel Kegeleirs  
+:Email:  miquel.kegeleirs@ulb.be  
 :Date:   March 15th, 2021
 
 What is DeimOS?
@@ -33,8 +33,8 @@ Compiling DeimOS
 
 **1. Initialize the Yocto Project Build Environment**
 
- $ cd DeimOS
- $ export TEMPLATECONF=meta-gumstix-extras/conf 
+ $ cd DeimOS  
+ $ export TEMPLATECONF=meta-gumstix-extras/conf  
  $ source ./poky/oe-init-build-env
 
 **2. Build an image**
